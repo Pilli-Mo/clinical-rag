@@ -15,11 +15,10 @@ jobs:
         with:
           python-version: "3.11"
       - name: Install dependencies
-        run: pip install fastapi uvicorn pydantic sentence-transformers pytest httpx faiss-cpu requests
+        run: pip install -r requirements.txt
       - name: Build FAISS index
         run: |
-          python -m app.ingest
-          python -m app.search
+          python -c "from app.search import build_index; build_index()"
       - name: Debug index files
         run: |
           ls -la data/

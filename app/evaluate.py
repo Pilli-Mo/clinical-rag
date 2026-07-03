@@ -79,7 +79,7 @@ if __name__ == "__main__":
     print(f"{'='*50}\n")
 
     for detail in report["details"]:
-        status = "✓ PASS" if detail["hit"] else "✗ FAIL"
+        status = "PASS" if detail["hit"] else "FAIL"
         print(f"{status} | {detail['question'][:60]}...")
         print(
             f"   Expected: {detail['expected']} | Retrieved: {detail['retrieved']}\n")

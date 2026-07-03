@@ -1,0 +1,25 @@
+name: CI pipeline
+
+on:
+  push:
+    branches: [main]
+  
+jobs:
+  test:
+    run-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install fastapi uvicorn pydantic sentence-transformers pytest httpx faiss-cpu requests
+
+      - name: Run tests
+        run: 
+          pip install fastapi uvicorn pydantic sentence-transformers pytest httpx faiss-cpu requests
